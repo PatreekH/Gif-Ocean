@@ -6,19 +6,25 @@
 </head>
 <body>
 
-<div class="giflist">
-  <span>
-  <button class="gif">Item One</button>
-  <button class="gif">Item Two</button>
-  <button class="gif">Item Three</button>
-  <button class="gif">Item Four</button>
-  </span>
+<div class="container">
+  <h1>Gif Search</h1>
+
+  <!--   -->
+  <div id="buttonsView"></div>
+
+  <form id="gif-form">
+    <label for="gif-input">Add a Gif search word: </label>
+    <input type="text" id="gif-input"><br>
+    
+    <!--  -->
+    <input id="addGif" type="submit" value="Add new search word">
+  </form>
+
+
+  <!--  -->
+<div class="container">
+  <div id="gifViews"></div>
 </div>
-
-
-
-  <div id="images"></div>
-
 
 <script src="https://code.jquery.com/jquery-2.2.3.js" type="text/javascript"></script>
 <script src="assets/javascript/logic.js" type="text/javascript"></script>

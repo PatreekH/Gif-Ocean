@@ -1,19 +1,8 @@
 body{
 	background-color: gray;
 }
-
-
-
-.gifList{
-	background-color: #004566;
-	text-align: center;
-	margin: 5%;
-	width: 55%;
-	height: 10%;
-}
-
-.gif {
-	margin: 1%;
+button{
+	margin: 10px;
 	text-align: center;
 	border: none;
 	background-color: #004566;
@@ -22,19 +11,28 @@ body{
 	font-size: 26px;
 	-webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    margin-bottom: 10%;
     outline: none;
 }
 
-#images img{
-	float: left;
-}
-
-
-
-.gif:hover{
-	border: none;
+button:hover{
 	background-color: white;
 	color: #004566;
-	box-shadow: 0px 10px 0px 10px white;
+	box-shadow: 0 0px 0px 16px #004566;
+}
+
+div, form, input {
+	margin: 10px;
+}
+
+.container{
+	width: 100%;
+}
+
+#gifViews{
+	width: 100%;
+}
+
+.gif{
+	width: 15%;
+	height: 15%;
 }

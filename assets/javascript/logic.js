@@ -2,39 +2,75 @@
 //By Patrick Hernandez
 
 
-
-    $('.gifList').on('click', function() {
-
-    var animal = $(this).data('animal');
-    var api = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-        $.ajax({url: api, method: 'GET'})
-
-            .done(function(response) {
-
-                userpick = response.data;
-
-                console.log(userpick);
-
-                for (var i = 0; i < userpick.length; i++){
-
-                    var gifDiv = $("<div>");
-
-                    var gifUrl = userpick[i].images.fixed_height.url;
-                    var gifimg = $("<img>");
-                    gifimg.attr('src', gifUrl);
-
-                    var ratingtext = userpick[i].rating;
-                    var rating = $("<p>").text("Rating: " + ratingtext);
-                    //var ratingspan = $("<span>").text(ratingtext);
-
-                    gifDiv.append(gifimg);
-                    gifDiv.append(rating)
-
-                    $("#images").prepend(gifDiv);
+var gifList = ["Cats", "Dogs", "Monkey"];
 
 
-                };
+function displayGif(){
 
-            });
+        $("#gifViews").empty();
+
+        var gif = $(this).attr('data-name');
+        var api = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+        console.log(gif);
+
+    $.ajax({url: api, method: 'GET'}).done(function(response) {
+
+        console.log(response);
+
+        for (var i = 0; i < response.data.length; i++) {
+
+            var gifDiv = $('<span class="gifinfo">');
+
+            var rating = response.data[i].rating;
+
+            var ratingP = $("<p>").text("Rating: " + rating);
+
+            gifDiv.append(ratingP);
+                
+        var gifimg = $("<img class='gif'>").attr("src", response.data[i].images.original.url);
+
+        gifDiv.append(gifimg);
+
+        $("#gifViews").append(gifDiv);
+
+        gifDiv.addClass("gifs")
+
+        }   
+
     });
+
+};
+
+
+function renderButtons(){
+
+    $('#buttonsView').empty();
+
+    for (var i = 0; i < gifList.length; i++){
+
+        var newSubj = $("<button>")
+        newSubj.addClass("gifinfo")
+        newSubj.attr("data-name", gifList[i]);
+        newSubj.text(gifList[i]);
+        $("#buttonsView").append(newSubj);
+    }
+
+}
+
+$("#addGif").on('click', function(){
+
+    var newgif = $('#gif-input').val().trim();
+
+    gifList.push(newgif);
+
+
+    renderButtons();
+
+    return false;
+})
+
+$(document).on('click', '.gifinfo', displayGif);
+
+renderButtons();
+
