@@ -2,7 +2,7 @@
 //By Patrick Hernandez
 
 
-var gifList = ["Cats", "Dogs", "Monkey"];
+var gifList = ["Cat", "Dog", "Monkey", "Owl", "Fox", "Fish", "Kangaroo", "Chicken", "Bird","Cow", "Wolf", "Shark", "Turtle"];
 
 
 function displayGif(){
@@ -28,13 +28,16 @@ function displayGif(){
 
             gifDiv.append(ratingP);
                 
-        var gifimg = $("<img class='gif'>").attr("src", response.data[i].images.original.url);
+            var gifimg = $("<img class='gif'>").attr("src", response.data[i].images.fixed_height.url);
 
-        gifDiv.append(gifimg);
+            gifDiv.append(gifimg);
 
-        $("#gifViews").append(gifDiv);
+            $("#gifViews").append(gifDiv);
 
-        gifDiv.addClass("gifs")
+            gifDiv.addClass("gifs")
+
+            //$(".gifs").animate({height: '10%'}, "slow");
+            $(".gif").animate({width: '100%'}, 3000);
 
         }   
 
