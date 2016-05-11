@@ -2,7 +2,7 @@
 //By Patrick Hernandez
 
 
-var gifList = ["Cat", "Dog", "Monkey", "Owl", "Fox", "Fish", "Kangaroo", "Chicken", "Bird","Cow", "Wolf", "Shark"];
+var gifList = ["Cat", "Dog", "Monkey", "Owl", "Fox", "Fish", "Kangaroo", "Chicken", "Bird", "Cow", "Wolf", "Shark", "Turtle", "Funny", "Scared", "Surpised", "Unbelievable"];
 
 
 function displayGif(){
@@ -40,8 +40,9 @@ function displayGif(){
                 //$(info box).slide out to the side
                 //grow 20px bigger
                 //click makes gif start
-                //top border wave animation?
                 //title graphic
+                //select your bait and then hook your gif
+                //add more options, 6 rows?
 
             });
 
