@@ -2,7 +2,7 @@
 //By Patrick Hernandez
 
 
-var gifList = ["Cat", "Dog", "Monkey", "Owl", "Fox", "Fish", "Kangaroo", "Chicken", "Bird","Cow", "Wolf", "Shark", "Turtle"];
+var gifList = ["Cat", "Dog", "Monkey", "Owl", "Fox", "Fish", "Kangaroo", "Chicken", "Bird","Cow", "Wolf", "Shark"];
 
 
 function displayGif(){
@@ -20,7 +20,7 @@ function displayGif(){
 
         for (var i = 0; i < response.data.length; i++) {
 
-            var gifDiv = $('<span class="gifinfo">');
+            var gifDiv = $('<div class="gifinfo">');
 
             var rating = response.data[i].rating;
 
@@ -36,8 +36,20 @@ function displayGif(){
 
             gifDiv.addClass("gifs")
 
-            //$(".gifs").animate({height: '10%'}, "slow");
-            $(".gif").animate({width: '100%'}, 3000);
+            $(".gifs").hover(function(){
+                //$(info box).slide out to the side
+                //grow 20px bigger
+                //click makes gif start
+                //top border wave animation?
+                //title graphic
+
+            });
+
+            //$(".gifs").animate({height: '250px'}, 3000);
+            //$(".gifs").animate({width: '250px'}, 3000);
+            //$(".gif").animate({height: '100%'}, 3000);
+            //$(".gif").animate({width: '100%'}, 3000);
+
 
         }   
 
