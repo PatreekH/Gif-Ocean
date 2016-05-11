@@ -164,6 +164,10 @@ span {
 .a20{
 	animation-delay: 1.9s;
 }
+.alast{
+	animation-delay: .4s;
+	width: 11px;
+}
 
 @keyframes wave {
   0%, 50%{
