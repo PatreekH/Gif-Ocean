@@ -1,4 +1,4 @@
-//Giphy Search Engine
+//Gif Ocean
 //By Patrick Hernandez
 
 
@@ -10,7 +10,7 @@ function displayGif(){
         $("#gifViews").empty();
 
         var gif = $(this).attr('data-name');
-        var api = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var api = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=15";
 
         console.log(gif);
 
@@ -20,39 +20,50 @@ function displayGif(){
 
         for (var i = 0; i < response.data.length; i++) {
 
-            var gifDiv = $('<div class="gifinfo">');
-
-            var rating = response.data[i].rating;
-
-            var ratingP = $("<p>").text("Rating: " + rating);
-
-            gifDiv.append(ratingP);
+            var gifDiv = $('<div class="gifpic">');
                 
-            var gifimg = $("<img class='gif'>").attr("src", response.data[i].images.fixed_height.url);
+            var gifimg = $("<img class='gif'>");
+
+            gifimg.attr({
+                src: response.data[i].images.fixed_height_still.url,
+                "data-still": response.data[i].images.fixed_height_still.url,
+                "data-animate": response.data[i].images.fixed_height.url,
+                "data-state": "still",
+            });
 
             gifDiv.append(gifimg);
 
             $("#gifViews").append(gifDiv);
 
-            gifDiv.addClass("gifs")
+            gifDiv.addClass("gifs");
 
-            $(".gifs").hover(function(){
-                //$(info box).slide out to the side
-                //grow 20px bigger
-                //click makes gif start
-                //title graphic
-                //select your bait and then hook your gif
-                //add more options, 6 rows?
+            var rating = response.data[i].rating;
 
-            });
+            var ratingP = $("<p id='info'>").text("Rating: " + rating);
 
-            //$(".gifs").animate({height: '250px'}, 3000);
-            //$(".gifs").animate({width: '250px'}, 3000);
-            //$(".gif").animate({height: '100%'}, 3000);
-            //$(".gif").animate({width: '100%'}, 3000);
+            $(gifDiv).prepend(ratingP);
 
 
-        }   
+        }
+
+
+            $(".gif").on("click", function(){
+                var infoDiv = $("<div id='infoDiv'>");
+                var state = $(this).attr('data-state'); 
+                if (state == 'still'){
+                    $("#infoDiv").animate({height: '0px'}, 1000);
+                    $("#infoDiv").animate({width: '0px'}, 1000);
+                    $(this).attr('src', $(this).data('animate'));
+                    $(this).attr('data-state', 'animate');
+                }else{
+                    $(this).attr('src', $(this).data('still'));
+                    $(this).attr('data-state', 'still');
+                    $(this).prepend(infoDiv);
+                    infoDiv.animate({height: '50px'}, 1000);
+                    infoDiv.animate({width: '220px'}, 1000);
+                }
+            })
+
 
     });
 

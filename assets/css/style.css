@@ -79,9 +79,16 @@ form, input {
 	margin-bottom: 2.5%;
 }
 
+
 .gif{
 	height: 100%;
-	width: 100%;
+	width: 100%; 
+}
+
+.infoDiv{
+	background-color: white;
+	height: 50px;
+	width: 220px;
 }
 
 .spacer{
@@ -102,6 +109,7 @@ span {
   width: 20px;
   height: 10px;
   animation: wave 2s ease-in-out infinite;
+  margin-bottom: 5%;
 }
 
 .a1 {
