@@ -2,7 +2,7 @@
 //By Patrick Hernandez
 
 
-var gifList = ["Cat", "Dog", "Monkey", "Owl", "Fox", "Fish", "Kangaroo", "Chicken", "Bird", "Cow", "Wolf", "Shark", "Turtle", "Funny", "Scared", "Surpised", "Unbelievable"];
+var gifList = ["Cat", "Dog", "Monkey", "Owl", "Fox", "Fish", "Kangaroo", "Chicken", "Bird", "Cow", "Wolf", "Turtle"];
 
 
 function displayGif(){
@@ -100,4 +100,29 @@ $("#addGif").on('click', function(){
 $(document).on('click', '.gifinfo', displayGif);
 
 renderButtons();
+createWave();
 
+function createWave(){
+    var windowSize = $(window).width();
+    var sideBarSize = windowSize / 100 * 15;
+    var waveCount = (windowSize - sideBarSize) / 20;
+    var regWaveCount = parseInt(waveCount);
+    var lastWave = parseInt((waveCount % regWaveCount) * 20);
+
+    console.log(windowSize);
+    console.log(sideBarSize);
+    console.log(regWaveCount);
+    console.log(lastWave);
+    //$('<style>').text('.blue { background: blue }').appendTo('head');
+    for (i = 1; i <= regWaveCount; i++){
+        $("<style type='text/css'> .a" + i + " {animation-delay: 0.0s; float:left;} </style>").appendTo("head");
+        var delay = 0.0;
+        var addDelay = 0.1;
+        var newDelay = parseFloat(delay) + parseFloat(addDelay);
+        $(".waveContainer").append("<span class='a" + i +  "'></span>");
+        //var waveClass = $(".a" + i);
+        //console.log(newDelay); 
+        //waveClass.css("animation-delay", parseFloat(newDelay) + "s");
+    }
+
+}
