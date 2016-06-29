@@ -200,3 +200,32 @@ function checkGroups(){
     }
 }
 
+function formFinalGroup(){
+    var rounded = Math.round(finalGroup);
+    if (rounded <= 9){
+        for (i = 0; i <= rounded; i++){
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            interval = "0." + i;
+            style.innerHTML = '.a' + i +  ' { animation-delay:' + parseFloat(interval) + 's; float:left; }';
+            document.getElementsByTagName('head')[0].appendChild(style);
+            $(".waveContainer").append("<span class='a" + i + "'></span>");
+        }
+        CreateFinalWave();
+    } else if (rounded > 9){
+        var remainingOver10 = rounded - 10;
+        for (i = 0; i <= 9; i++){
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            $(".waveContainer").append("<span class='a" + i + "'></span>");
+        }
+        for (i = 0; i <= remainingOver10; i++){
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            interval = "1." + i;
+            $(".waveContainer").append("<span class='b" + i + "'></span>");
+        }
+        CreateFinalWave()
+    } 
+  
+}
