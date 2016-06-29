@@ -229,3 +229,31 @@ function formFinalGroup(){
     } 
   
 }
+
+//parseFloat(lastWave)
+
+function CreateFinalWave() {
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    //lastWave = Math.round(lastWave);
+    if (interval == 0){
+            style.innerHTML = '.lastWave { animation-delay:' + parseFloat(interval) + 's; float:left; width:' + lastWave + 'px;}';
+            document.getElementsByTagName('head')[0].appendChild(style);
+            $(".waveContainer").append("<span class='lastWave'></span>");
+    } else if (interval < 0.9){
+        var interval1 = parseFloat(interval) + 0.1;
+        style.innerHTML = '.lastWave { animation-delay:' + parseFloat(interval1) + 's; float:left; width:' + lastWave + 'px;}';
+        document.getElementsByTagName('head')[0].appendChild(style);
+        $(".waveContainer").append("<span class='lastWave'></span>");
+    } else if (1.0 <= interval){
+        var interval2 = parseFloat(interval) + 0.1;
+        style.innerHTML = '.lastWave { animation-delay:' + parseFloat(interval2) + 's; float:left; width:' + lastWave + 'px;}';
+        document.getElementsByTagName('head')[0].appendChild(style);
+        $(".waveContainer").append("<span class='lastWave'></span>");
+    } else if (interval == 0.9){
+        var interval3 = "1.0";
+        style.innerHTML = '.lastWave { animation-delay:' + parseFloat(interval3) + 's; float:left; width:' + lastWave + 'px;}';
+        document.getElementsByTagName('head')[0].appendChild(style);
+        $(".waveContainer").append("<span class='lastWave'></span>");
+    } 
+}
