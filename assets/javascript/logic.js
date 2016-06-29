@@ -5,6 +5,45 @@
 var gifList = ["Cat", "Dog", "Monkey", "Owl", "Fox", "Fish", "Kangaroo", "Chicken", "Bird", "Cow", "Wolf", "Turtle"];
 
 
+
+//Size of the current browser window
+var windowSize = $(window).width();
+console.log("Window size: " + windowSize);
+
+//Size of the sidebar (15% of the page);
+var sideBarSize = windowSize / 100 * 15;
+console.log("Sidebar size: " + sideBarSize);
+
+//Wave Count including lastWave
+var waveCount = (windowSize - sideBarSize) / 20;
+console.log("Total spans needed including the last span: " + waveCount);
+
+//Wave Count not including lastWave
+var regWaveCount = parseInt(waveCount);
+console.log("Total spans needed: " + regWaveCount);
+
+//Calculates lastWave px size
+var lastWave = parseFloat((waveCount % regWaveCount) * 20);
+console.log("Last span pixel size: " + lastWave);
+
+//required amount of groups of 20 needed for the page
+var requiredGroupCount = parseInt(regWaveCount / 20);
+console.log("Number of times a group (20) can go into the page: " + requiredGroupCount);
+
+//required amount of groups with decimal
+var reqGroupCountFloat = regWaveCount / 20;
+console.log("Required groups with decimal: " + reqGroupCountFloat);
+
+//calculates remaining spans left after grouping
+var finalGroup = (reqGroupCountFloat % requiredGroupCount) * 20 - 1;
+console.log("Spans needed after grouping (-1) : " + finalGroup);
+
+//current wave groups on the page
+var currentGroups = 0;
+
+var interval;
+
+
 function displayGif(){
 
         $("#gifViews").empty();
@@ -95,34 +134,69 @@ $("#addGif").on('click', function(){
     renderButtons();
 
     return false;
+});
+
+
+
+$("#resetWave").on('click', function(){
+
+    $('#waveContainer').clear();
+
+    createWave();
+
+    return false;
 })
+
+
 
 $(document).on('click', '.gifinfo', displayGif);
 
 renderButtons();
 createWave();
 
+
 function createWave(){
-    var windowSize = $(window).width();
-    var sideBarSize = windowSize / 100 * 15;
-    var waveCount = (windowSize - sideBarSize) / 20;
-    var regWaveCount = parseInt(waveCount);
-    var lastWave = parseInt((waveCount % regWaveCount) * 20);
-
-    console.log(windowSize);
-    console.log(sideBarSize);
-    console.log(regWaveCount);
-    console.log(lastWave);
-    //$('<style>').text('.blue { background: blue }').appendTo('head');
-    for (i = 1; i <= regWaveCount; i++){
-        $("<style type='text/css'> .a" + i + " {animation-delay: 0.0s; float:left;} </style>").appendTo("head");
-        var delay = 0.0;
-        var addDelay = 0.1;
-        var newDelay = parseFloat(delay) + parseFloat(addDelay);
-        $(".waveContainer").append("<span class='a" + i +  "'></span>");
-        //var waveClass = $(".a" + i);
-        //console.log(newDelay); 
-        //waveClass.css("animation-delay", parseFloat(newDelay) + "s");
-    }
-
+    formWaveGroup();
+    addWaveGroup();
 }
+
+function formWaveGroup(){
+        var delay = "0.0"
+    for (i = 0; i <= 9; i++){
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        delay = "0." + i;
+        style.innerHTML = '.a' + i +  ' { animation-delay:' + parseFloat(delay) + 's; float:left; }';
+        document.getElementsByTagName('head')[0].appendChild(style);
+    }
+    for (i = 0; i <= 9; i++){
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        delay = "1." + i;
+        style.innerHTML = '.b' + i +  ' { animation-delay:' + parseFloat(delay) + 's; float:left; }';
+        document.getElementsByTagName('head')[0].appendChild(style);
+    }
+}
+
+function addWaveGroup(){
+    for (i = 0; i <= 9; i++){
+        $(".waveContainer").append("<span class='a" + i + "'></span>");
+    }
+    for (i = 0; i <= 9; i++){
+        $(".waveContainer").append("<span class='b" + i + "'></span>");
+    }
+    checkGroups();
+}
+
+function checkGroups(){
+    currentGroups++;
+    if (currentGroups < requiredGroupCount){
+        addWaveGroup();
+    } else if (requiredGroupCount == reqGroupCountFloat) {
+        interval = 0.0;
+        CreateFinalWave();
+    } else {
+        formFinalGroup();
+    }
+}
+

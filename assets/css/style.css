@@ -91,294 +91,33 @@ form, input {
 }
 
 .spacer{
-	height: 5.5%;
+	height: 10%;
 	background-color: white;
 	float: right;
 	width: 85%;
 }
+
+/**
+z-index spacer half way behind .wavecontainer to avoid lines on odd browser widths
+**/
 
 .wavecontainer{
 }
 
 span {
   display: inline-block;
-  background-color: #004566;
+  background-color: white;
   width: 20px;
   height: 10px;
   animation: wave 2s ease-in-out infinite;
   margin-bottom: 5%;
 }
 
-/**
-
-.a1 {
-	float: left;
-	animation-delay: 0s;
-}
-.a2 {
-	float: left;
-	animation-delay: .1s;
-}
-.a3 {
-	float: left;
-	animation-delay: .2s;
-}
-.a4 {
-	float: left;
-	animation-delay: .3s;
-}
-.a5 {
-	float: left;
-	animation-delay: .4s;
-}
-.a6{
-	float: left;	
-	animation-delay: .5s;
-}
-.a7{
-	float: left;	
-	animation-delay: .6s;
-}
-.a8{
-	float: left;	
-	animation-delay: .7s;
-}
-.a9{
-	float: left;
-	animation-delay: .8s;
-}
-.a10{
-	float: left;
-	animation-delay: .9s;
-}
-.a11{
-	float: left;
-	animation-delay: 1s;
-}
-.a12{
-	float: left;
-	animation-delay: 1.1s;
-}
-.a13{
-	float: left;
-	animation-delay: 1.2s;
-}
-.a14{
-	float: left;
-	animation-delay: 1.3s;
-}
-.a15{
-	float: left;
-	animation-delay: 1.4s;
-}
-.a16{
-	float: left;
-	animation-delay: 1.5s;
-}
-.a17{
-	float: left;
-	animation-delay: 1.6s;
-}
-.a18{
-	float: left;
-	animation-delay: 1.7s;
-}
-.a19{
-	float: left;
-	animation-delay: 1.8s;
-}
-.a20{
-	float: left;
-	animation-delay: 1.9s;
-}
-.a21 {
-	float: left;
-	animation-delay: 0s;
-}
-.a22 {
-	float: left;
-	animation-delay: .1s;
-}
-.a23 {
-	float: left;
-	animation-delay: .2s;
-}
-.a24 {
-	float: left;
-	animation-delay: .3s;
-}
-.a25 {
-	float: left;
-	animation-delay: .4s;
-}
-.a26{
-	float: left;	
-	animation-delay: .5s;
-}
-.a27{
-	float: left;	
-	animation-delay: .6s;
-}
-.a28{
-	float: left;	
-	animation-delay: .7s;
-}
-.a29{
-	float: left;
-	animation-delay: .8s;
-}
-.a30{
-	float: left;
-	animation-delay: .9s;
-}
-.a31{
-	float: left;
-	animation-delay: 1s;
-}
-.a32{
-	float: left;
-	animation-delay: 1.1s;
-}
-.a33{
-	float: left;
-	animation-delay: 1.2s;
-}
-.a34{
-	float: left;
-	animation-delay: 1.3s;
-}
-.a35{
-	float: left;
-	animation-delay: 1.4s;
-}
-.a36{
-	float: left;
-	animation-delay: 1.5s;
-}
-.a37{
-	float: left;
-	animation-delay: 1.6s;
-}
-.a38{
-	float: left;
-	animation-delay: 1.7s;
-}
-.a39{
-	float: left;
-	animation-delay: 1.8s;
-}
-.a40{
-	float: left;
-	animation-delay: 1.9s;
-}
-.a41 {
-	float: left;
-	animation-delay: 0s;
-}
-.a42 {
-	float: left;
-	animation-delay: .1s;
-}
-.a43 {
-	float: left;
-	animation-delay: .2s;
-}
-.a44 {
-	float: left;
-	animation-delay: .3s;
-}
-.a45 {
-	float: left;
-	animation-delay: .4s;
-}
-.a46{
-	float: left;	
-	animation-delay: .5s;
-}
-.a47{
-	float: left;	
-	animation-delay: .6s;
-}
-.a48{
-	float: left;	
-	animation-delay: .7s;
-}
-.a49{
-	float: left;
-	animation-delay: .8s;
-}
-.a50{
-	float: left;
-	animation-delay: .9s;
-}
-.a51{
-	float: left;
-	animation-delay: 1s;
-}
-.a52{
-	float: left;
-	animation-delay: 1.1s;
-}
-.a53{
-	float: left;
-	animation-delay: 1.2s;
-}
-.a54{
-	float: left;
-	animation-delay: 1.3s;
-}
-.a55{
-	float: left;
-	animation-delay: 1.4s;
-}
-.a56{
-	float: left;
-	animation-delay: 1.5s;
-}
-.a57{
-	float: left;
-	animation-delay: 1.6s;
-}
-.a58{
-	float: left;
-	animation-delay: 1.7s;
-}
-.a59{
-	float: left;
-	animation-delay: 1.8s;
-}
-.a60{
-	float: left;
-	animation-delay: 1.9s;
-}
-.a61 {
-	float: left;
-	animation-delay: 0s;
-}
-.a62 {
-	float: left;
-	animation-delay: .1s;
-}
-.a63 {
-	float: left;
-	animation-delay: .2s;
-}
-.a64 {
-	float: left;
-	animation-delay: .3s;
-}
-
-.alast{
-	animation-delay: .4s;
-	width: 11px;
-}
-**/
-
 @keyframes wave {
   0%, 50%{
   }
   25% {
     transform: scaleY(4);
-    background-color: #004566;
+    background-color: white;
   }
 }
