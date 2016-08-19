@@ -1,44 +1,42 @@
 <html>
 <head>
 	<title>Gif Ocean</title>
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 
-  <div id="start">
-    <h1>Press 'S' to start</h1>
-  </div>
+<div class="container">
 
-  <div id="ledge-block"></div>
-  <div id="ledge-block2"></div>
-  
-  <img id="ledge-pic" src="css/images/startLedge3.png">
-
-  <div id="scoreDiv"></div>
-
-
-<!--    <img class="drop-off" id="dropoff" src="dropoff.png" style="top:40.75%;left:50%;">
-    <img class="ledge-pic2" id="ledge-pic2" src="startLedge2.png" style="top:40.50%;left:55%;" -->
-
-  <div class="lane">
-<!--    <div class="hurdleSide" id="hurdle1Side" style="position:fixed;left:50%;top:41%;">
-    <div class="hurdleTop" id="hurdle1Top" style="position:absolute;left:-86%;top:-80%;"></div>
-      <div class="h1z hurdle" id="hurdle1" style="position:fixed;left:50%;top:40%;">
-        <img id="hcube" src="css/images/hcube.png">
-      </div>
-    </div> -->
-  </div>
-
-<div id="boxSide">
-<div id="boxTop"></div>
-  <div class="box">
-    <img id="pcube" src="css/images/pcube.png">
-  </div>
+<div class="header">
+  <p>GiF Ocean</p>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
-<script src="css/javascript/logic.js" type="text/javascript"></script>
+<div id="buttonsView"></div>
+
+<div class="spacer"></div>
+
+<div id="sideNav">
+  <form id="gif-form">
+    <label for="gif-input">Add a Gif search word: </label>
+    <input type="text" id="gif-input"><br>
+    
+    <input id="addGif" type="submit" value="Add new search word">
+    <br>
+    <input id="resetWave" type="submit" value="Reset Wave">
+  </form>
+</div>
+
+<div class="waveContainer">
+ 
+</div>
+
+
+<div class="container">
+  <div id="gifViews"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.3.js" type="text/javascript"></script>
+<script src="assets/javascript/logic.js" type="text/javascript"></script>
 </body>
 </html>
