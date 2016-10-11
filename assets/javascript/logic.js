@@ -180,7 +180,11 @@ function createWave(){
     sideBarSize = windowSize / 100 * 15;
 
     //Wave Count including lastWave
-    waveCount = (windowSize - sideBarSize) / 20;
+    if (windowSize < 997){
+        waveCount = windowSize / 20;
+    } else {
+        waveCount = (windowSize - sideBarSize) / 20;
+    }
 
     //Wave Count not including lastWave
     regWaveCount = parseInt(waveCount);
@@ -283,9 +287,9 @@ function CreateFinalWave() {
     style.type = 'text/css';
     //lastWave = Math.round(lastWave);
     if (interval == 0){
-            style.innerHTML = '.lastWave { animation-delay:' + parseFloat(interval) + 's; float:left; width:' + lastWave + 'px;}';
-            document.getElementsByTagName('head')[0].appendChild(style);
-            $(".waveContainer").append("<span class='lastWave'></span>");
+        style.innerHTML = '.lastWave { animation-delay:' + parseFloat(interval) + 's; float:left; width:' + lastWave + 'px;}';
+        document.getElementsByTagName('head')[0].appendChild(style);
+        $(".waveContainer").append("<span class='lastWave'></span>");
     } else if (interval < 0.9){
         var interval1 = parseFloat(interval) + 0.1;
         style.innerHTML = '.lastWave { animation-delay:' + parseFloat(interval1) + 's; float:left; width:' + lastWave + 'px;}';
