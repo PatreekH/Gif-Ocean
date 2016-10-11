@@ -140,14 +140,12 @@ $("#addGif").on('click', function(){
 
 $("#resetWave").on('click', function(){
 
-    $('#waveContainer').clear();
+    $('.waveContainer').empty();
 
     createWave();
 
     return false;
 })
-
-
 
 $(document).on('click', '.gifinfo', displayGif);
 
@@ -155,7 +153,53 @@ renderButtons();
 createWave();
 
 
+var windowSizeCheck = setInterval(function() {
+    var newWindowSize = $(window).width();
+    if(newWindowSize != windowSize){
+        $('.waveContainer').empty();
+        createWave();
+        windowSize = newWindowSize;
+        /*clearInterval(windowSizeCheck);*/
+    }
+}, 1);
+
+
+//Have algo calculate fixed width for side bar and not 15%
+//Have top words not overlap with logo
+//Have rating and details pop out above as originally planned
+//change animals to fish
+
 function createWave(){
+
+    $(window).width();
+
+    //Size of the current browser window
+    windowSize = $(window).width();
+
+    //Size of the sidebar (15% of the page);
+    sideBarSize = windowSize / 100 * 15;
+
+    //Wave Count including lastWave
+    waveCount = (windowSize - sideBarSize) / 20;
+
+    //Wave Count not including lastWave
+    regWaveCount = parseInt(waveCount);
+
+    //Calculates lastWave px size
+    lastWave = parseFloat((waveCount % regWaveCount) * 20);
+
+    //required amount of groups of 20 needed for the page
+    requiredGroupCount = parseInt(regWaveCount / 20);
+
+    //required amount of groups with decimal
+    reqGroupCountFloat = regWaveCount / 20;
+
+    //calculates remaining spans left after grouping
+    finalGroup = (reqGroupCountFloat % requiredGroupCount) * 20 - 1;
+
+    //current wave groups on the page
+    currentGroups = 0;
+
     formWaveGroup();
     addWaveGroup();
 }

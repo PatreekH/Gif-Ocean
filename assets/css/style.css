@@ -2,6 +2,7 @@ body{
 	background-color: #004566;
 }
 button{
+	cursor: pointer;
 	text-align: center;
 	border: none;
 	background-color: white;
@@ -82,6 +83,10 @@ form, input {
 .gif{
 	height: 100%;
 	width: 100%; 
+}
+
+#addGif{
+	cursor: pointer;
 }
 
 .infoDiv{
